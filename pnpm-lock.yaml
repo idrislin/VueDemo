@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@headlessui/vue':
+    specifier: ^1.7.19
+    version: 1.7.19(vue@3.4.21)
+  '@heroicons/vue':
+    specifier: ^2.1.1
+    version: 2.1.1(vue@3.4.21)
   autoprefixer:
     specifier: ^10.4.18
     version: 10.4.18(postcss@8.4.36)
@@ -615,6 +621,24 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
+  /@headlessui/vue@1.7.19(vue@3.4.21):
+    resolution: {integrity: sha512-VFjKPybogux/5/QYGSq4zgG/x3RcxId15W8uguAJAjPBxelI23dwjOjTx/mIiMkM/Hd3rzFxcf2aIp56eEWRcA==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      vue: ^3.2.0
+    dependencies:
+      '@tanstack/vue-virtual': 3.2.0(vue@3.4.21)
+      vue: 3.4.21(typescript@5.4.2)
+    dev: false
+
+  /@heroicons/vue@2.1.1(vue@3.4.21):
+    resolution: {integrity: sha512-Yi5nh/89L193ALgHyJUQUdNLsKXPrrE3yj5yiR8WAlo7nZyXGxGauQcEAmBsa2XJGMhBMuEdoOiuZ8wEwTBxVQ==}
+    peerDependencies:
+      vue: '>= 3'
+    dependencies:
+      vue: 3.4.21(typescript@5.4.2)
+    dev: false
+
   /@humanwhocodes/config-array@0.11.14:
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
     engines: {node: '>=10.10.0'}
@@ -809,6 +833,19 @@ packages:
   /@rushstack/eslint-patch@1.7.2:
     resolution: {integrity: sha512-RbhOOTCNoCrbfkRyoXODZp75MlpiHMgbE5MEBZAnnnLyQNgrigEj4p0lzsMDyc1zVsJDLrivB58tgg3emX0eEA==}
     dev: true
+
+  /@tanstack/virtual-core@3.2.0:
+    resolution: {integrity: sha512-P5XgYoAw/vfW65byBbJQCw+cagdXDT/qH6wmABiLt4v4YBT2q2vqCOhihe+D1Nt325F/S/0Tkv6C5z0Lv+VBQQ==}
+    dev: false
+
+  /@tanstack/vue-virtual@3.2.0(vue@3.4.21):
+    resolution: {integrity: sha512-KbmQVvw1k5Js2Fk4DJw9aDxFT5+e8a2Ba4UBJAFCRnWBCnzd3NlmEHI9JCeLv1tYDZ/iHwwv+Z9Le0BENIEP8A==}
+    peerDependencies:
+      vue: ^2.7.0 || ^3.0.0
+    dependencies:
+      '@tanstack/virtual-core': 3.2.0
+      vue: 3.4.21(typescript@5.4.2)
+    dev: false
 
   /@tsconfig/node20@20.1.2:
     resolution: {integrity: sha512-madaWq2k+LYMEhmcp0fs+OGaLFk0OenpHa4gmI4VEmCKX4PJntQ6fnnGADVFrVkBj0wIdAlQnK/MrlYTHsa1gQ==}
