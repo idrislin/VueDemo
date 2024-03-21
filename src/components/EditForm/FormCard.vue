@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { type FormModel } from '@/models/Form'
 import TextField from '@/components/common/TextField.vue'
+import SelectMenu from '../common/SelectMenu.vue'
 const formData = defineModel<FormModel>({ required: true })
 </script>
 
@@ -10,7 +11,8 @@ const formData = defineModel<FormModel>({ required: true })
       <p>表头图片</p>
     </div>
     <div class="px-8">
-      <TextField v-model="formData.title" label="email" />
+      <TextField :placeholder="'Please Enter'" v-model="formData.title" label="Email" />
+      <SelectMenu />
     </div>
   </div>
 </template>
