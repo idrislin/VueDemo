@@ -10,7 +10,7 @@ const configs: FormModel = {
     { formType: 'text', label: 'Email', key: 'email' },
     {
       formType: 'checkbox',
-      label: '',
+      label: '多选',
       key: 'checkbox',
       multiple: false,
       options: [
@@ -51,7 +51,7 @@ const configs: FormModel = {
   ]
 }
 
-const formData = ref<Record<string, any>>({ email: '', name: '' })
+const formData = ref<Record<string, any>>({ email: '', name: '', checkbox: [false, false, false] })
 watch(
   () => formData,
   (val) => {
