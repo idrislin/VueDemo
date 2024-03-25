@@ -1,14 +1,3 @@
-<script setup lang="ts">
-import AleatCircleIcon from '../icons/AlertCircleIcon.vue'
-const text = defineModel<string>({ required: true })
-const { label, labelHidden, errorMsg, disabled, placeholder } = defineProps({
-  label: String,
-  labelHidden: Boolean,
-  errorMsg: String,
-  disabled: Boolean,
-  placeholder: String
-})
-</script>
 <template>
   <div>
     <label v-if="!labelHidden" class="block text-sm font-medium leading-6 text-gray-900">{{
@@ -16,9 +5,9 @@ const { label, labelHidden, errorMsg, disabled, placeholder } = defineProps({
     }}</label>
     <div class="relative mt-2 rounded-md">
       <input
-        :disabled
+        :disabled="disabled"
         :placeholder="placeholder"
-        v-model="text"
+        v-model="value"
         class="block w-full outline-none px-3 rounded-md border-0 py-1.5 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500 disabled:ring-gray-200 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
       />
       <div
@@ -31,3 +20,10 @@ const { label, labelHidden, errorMsg, disabled, placeholder } = defineProps({
     <p class="mt-2 text-sm text-red-600" v-if="errorMsg">{{ errorMsg }}</p>
   </div>
 </template>
+<script setup lang="ts">
+import type { FormConfig } from '@/models/Form'
+import AleatCircleIcon from '../icons/AlertCircleIcon.vue'
+const value = defineModel<string>({ required: true })
+const { data } = defineProps<{ data: FormConfig }>()
+const { label, labelHidden, errorMsg, disabled, placeholder } = data
+</script>
