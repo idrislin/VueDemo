@@ -2,6 +2,7 @@ export type FormType = 'text' | 'textarea' | 'image' | 'selector' | 'radio' | 'c
 
 export interface FormConfig {
   formType: FormType
+  describe?: string
   options?: Record<string, any>[]
   label: string
   labelHidden?: boolean

@@ -2,6 +2,9 @@
 import FormCard from '@/components/EditForm/FormCard.vue'
 import { type FormModel } from '@/models/Form'
 import { ref, watch } from 'vue'
+import IconRadio from '@/components/icons/IconRadio.vue'
+import IconTextfield from '@/components/icons/IconTextfield.vue'
+import { PencilSquareIcon } from '@heroicons/vue/24/solid'
 const configs: FormModel = {
   title: '',
   describe: '',
@@ -9,10 +12,19 @@ const configs: FormModel = {
   formConfig: [
     { formType: 'text', label: 'Email', key: 'email' },
     {
+      formType: 'radio',
+      label: '单选',
+      key: 'radio',
+      options: [
+        { id: 'email', label: 'Email' },
+        { id: 'sms', label: 'Phone (SMS)' },
+        { id: 'push', label: 'Push notification' }
+      ]
+    },
+    {
       formType: 'checkbox',
       label: '多选',
       key: 'checkbox',
-      multiple: false,
       options: [
         {
           id: 'comments',
@@ -51,7 +63,17 @@ const configs: FormModel = {
   ]
 }
 
-const formData = ref<Record<string, any>>({ email: '', name: '', checkbox: [false, false, false] })
+const components = [
+  { label: '输入框', value: 'text', icon: IconTextfield },
+  { label: '单选', value: 'radio', icon: IconRadio }
+]
+
+const formData = ref<Record<string, any>>({
+  email: '',
+  name: '',
+  checkbox: [false, false, false],
+  radio: ''
+})
 watch(
   () => formData,
   (val) => {
@@ -66,7 +88,18 @@ watch(
     <div>Header</div>
   </div>
   <div class="flex-1 max-h-[calc(100vh-56px)] grid grid-cols-[228px,1fr,228px]">
-    <div class="px-4 py-5">left banner</div>
+    <div class="px-4 py-5">
+      <div class="grid grid-cols-2 gap-3">
+        <button
+          class="flex items-center justify-start gap-1 px-2 text-xs bg-blue-100 rounded h-9 hover:bg-blue-200"
+          v-for="component in components"
+          :key="component.label"
+        >
+          <component :is="component.icon" class="w-4 h-4 text-blue-500" />
+          {{ component.label }}
+        </button>
+      </div>
+    </div>
     <div class="p-5 overflow-y-auto border-x border-gray-200 bg-[#f8f9fd] custom-scrollbar">
       <FormCard v-model="formData" :configs="configs" />
     </div>

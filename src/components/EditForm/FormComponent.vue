@@ -1,19 +1,28 @@
 <template>
-  <component :is="currentComponent" :data="item" v-model="value"></component>
+  <div class="py-4">
+    <component :is="currentComponent" :data="item" v-model="value"></component>
+  </div>
 </template>
 
 <script setup lang="ts">
 import SelectMenu from '../common/SelectMenu.vue'
 import TextField from '../common/TextField.vue'
 import CheckboxList from '../common/CheckboxList.vue'
+import RadioList from '../common/RadioList.vue'
 import type { FormConfig } from '@/models/Form'
 
-type ComponentType = typeof SelectMenu | typeof TextField | typeof CheckboxList | null
+type ComponentType =
+  | typeof SelectMenu
+  | typeof TextField
+  | typeof CheckboxList
+  | typeof RadioList
+  | null
 
 const componentMap: Record<string, ComponentType> = {
   selector: SelectMenu,
   text: TextField,
-  checkbox: CheckboxList
+  checkbox: CheckboxList,
+  radio: RadioList
 }
 
 let currentComponent: ComponentType = null

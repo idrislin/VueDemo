@@ -29,14 +29,11 @@ import type { FormConfig } from '@/models/Form'
 
 const value = defineModel<boolean[]>({ required: true })
 const { data } = defineProps<{ data: FormConfig }>()
-const { options, label, multiple } = data
+const { options, label } = data
 const handleChange = (index: number, event: Event) => {
   const target = event.target as HTMLInputElement
-  if (multiple) value.value.splice(index, 1, target.checked)
-  else {
-    const result = new Array(value.value.length).fill(false)
-    result.splice(index, 1, target.checked)
-    value.value = result
-  }
+  const result = new Array(value.value.length).fill(false)
+  result.splice(index, 1, target.checked)
+  value.value = result
 }
 </script>

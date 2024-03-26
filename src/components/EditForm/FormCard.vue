@@ -3,7 +3,7 @@
     <div class="flex items-center justify-center w-full py-5 border-b cursor-pointer">
       <p>表头图片</p>
     </div>
-    <div class="px-8">
+    <div class="flex flex-col px-8 divide-y">
       <FormComponent
         v-for="(item, index) in configs.formConfig"
         :key="index"
