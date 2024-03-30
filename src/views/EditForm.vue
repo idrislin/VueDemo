@@ -4,7 +4,8 @@ import { type FormModel } from '@/models/Form'
 import { ref, watch } from 'vue'
 import IconRadio from '@/components/icons/IconRadio.vue'
 import IconTextfield from '@/components/icons/IconTextfield.vue'
-import { PencilSquareIcon } from '@heroicons/vue/24/solid'
+import IconCheckbox from '@/components/icons/IconCheckbox.vue'
+import IconSelect from '@/components/icons/IconSelect.vue'
 const configs: FormModel = {
   title: '',
   describe: '',
@@ -65,7 +66,9 @@ const configs: FormModel = {
 
 const components = [
   { label: '输入框', value: 'text', icon: IconTextfield },
-  { label: '单选', value: 'radio', icon: IconRadio }
+  { label: '单选', value: 'radio', icon: IconRadio },
+  { label: '复选框', value: 'radio', icon: IconCheckbox },
+  { label: '下拉菜单', value: 'radio', icon: IconSelect }
 ]
 
 const formData = ref<Record<string, any>>({
