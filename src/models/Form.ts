@@ -1,6 +1,7 @@
 export type FormType = 'text' | 'textarea' | 'image' | 'selector' | 'radio' | 'checkbox'
 
 export interface FormConfig {
+  id: string
   formType: FormType
   describe?: string
   options?: Record<string, any>[]
